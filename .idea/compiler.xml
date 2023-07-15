@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="my-leadnews-utils" />
+        <module name="my-leadnews-feign-api" />
+        <module name="my-leadnews-model" />
+        <module name="my-leadnews-gateway" />
+        <module name="my-leadnews-common" />
+        <module name="my-leadnews-test" />
+        <module name="my-leadnews-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="heima-leadnews-apis" target="1.8" />
+      <module name="heima-leadnews-common" target="1.8" />
+      <module name="heima-leadnews-feign-api" target="1.8" />
+      <module name="heima-leadnews-gateway" target="1.8" />
+      <module name="heima-leadnews-model" target="1.8" />
+      <module name="heima-leadnews-test" target="1.8" />
+      <module name="my-leadnews" target="1.8" />
+      <module name="my-leadnews-common" target="1.8" />
+      <module name="my-leadnews-feign-api" target="1.8" />
+      <module name="my-leadnews-gateway" target="1.8" />
+      <module name="my-leadnews-model" target="1.8" />
+      <module name="my-leadnews-service" target="1.8" />
+      <module name="my-leadnews-test" target="1.8" />
+      <module name="my-leadnews-utils" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="heima-leadnews-apis" options="-parameters" />
+      <module name="heima-leadnews-common" options="-parameters" />
+      <module name="heima-leadnews-feign-api" options="-parameters" />
+      <module name="heima-leadnews-gateway" options="-parameters" />
+      <module name="heima-leadnews-model" options="-parameters" />
+      <module name="heima-leadnews-test" options="-parameters" />
+      <module name="my-leadnews-common" options="-parameters" />
+      <module name="my-leadnews-feign-api" options="-parameters" />
+      <module name="my-leadnews-gateway" options="-parameters" />
+      <module name="my-leadnews-model" options="-parameters" />
+      <module name="my-leadnews-service" options="-parameters" />
+      <module name="my-leadnews-test" options="-parameters" />
+      <module name="my-leadnews-utils" options="-parameters" />
+    </option>
+  </component>
+</project>
