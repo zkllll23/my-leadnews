@@ -2,6 +2,7 @@ package io.github.zkllll23.model.common.dtos;
 
 import com.alibaba.fastjson.JSON;
 import io.github.zkllll23.model.common.enums.AppHttpCodeEnum;
+import org.springframework.util.DigestUtils;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -162,6 +163,7 @@ public class ResponseResult<T> implements Serializable {
         list.add("my-leadnews");
         responseResult.setData(list);
         System.out.println(JSON.toJSONString(responseResult));
+        System.out.println(DigestUtils.md5DigestAsHex(("admin" + "123abc").getBytes()));
 
     }
 

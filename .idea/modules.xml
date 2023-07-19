@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/my-leadnews.iml" filepath="$PROJECT_DIR$/my-leadnews.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-leadnews-common/my-leadnews-common.iml" filepath="$PROJECT_DIR$/my-leadnews-common/my-leadnews-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-leadnews-feign-api/my-leadnews-feign-api.iml" filepath="$PROJECT_DIR$/my-leadnews-feign-api/my-leadnews-feign-api.iml" />
-      <module fileurl="file://$PROJECT_DIR$/my-leadnews-gateway/my-leadnews-gateway.iml" filepath="$PROJECT_DIR$/my-leadnews-gateway/my-leadnews-gateway.iml" />
-      <module fileurl="file://$PROJECT_DIR$/my-leadnews-model/my-leadnews-model.iml" filepath="$PROJECT_DIR$/my-leadnews-model/my-leadnews-model.iml" />
       <module fileurl="file://$PROJECT_DIR$/my-leadnews-service/my-leadnews-service.iml" filepath="$PROJECT_DIR$/my-leadnews-service/my-leadnews-service.iml" />
-      <module fileurl="file://$PROJECT_DIR$/my-leadnews-test/my-leadnews-test.iml" filepath="$PROJECT_DIR$/my-leadnews-test/my-leadnews-test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/my-leadnews-utils/my-leadnews-utils.iml" filepath="$PROJECT_DIR$/my-leadnews-utils/my-leadnews-utils.iml" />
     </modules>
   </component>
 </project>
