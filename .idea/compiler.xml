@@ -7,13 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="freemarker-demo" />
         <module name="my-leadnews-utils" />
         <module name="my-leadnews-feign-api" />
         <module name="my-leadnews-article" />
         <module name="my-leadnews-app-gateway" />
         <module name="my-leadnews-model" />
         <module name="my-leadnews-common" />
-        <module name="my-leadnews-test" />
         <module name="my-leadnews-user" />
       </profile>
     </annotationProcessing>
@@ -28,6 +28,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="freemarker-demo" options="-parameters" />
       <module name="heima-leadnews-apis" options="-parameters" />
       <module name="heima-leadnews-common" options="-parameters" />
       <module name="heima-leadnews-feign-api" options="-parameters" />
