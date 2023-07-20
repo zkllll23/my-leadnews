@@ -1,7 +1,7 @@
 package io.github.zkllll23.user.controller.v1;
 
 import io.github.zkllll23.model.common.dtos.ResponseResult;
-import io.github.zkllll23.user.dtos.LoginDto;
+import io.github.zkllll23.model.user.dtos.LoginDto;
 import io.github.zkllll23.user.service.ApUserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -5,18 +5,16 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.github.zkllll23.model.common.dtos.ResponseResult;
 import io.github.zkllll23.model.common.enums.AppHttpCodeEnum;
 import io.github.zkllll23.model.user.pojos.ApUser;
-import io.github.zkllll23.user.dtos.LoginDto;
+import io.github.zkllll23.model.user.dtos.LoginDto;
 import io.github.zkllll23.user.mapper.ApUserMapper;
 import io.github.zkllll23.user.service.ApUserService;
 import io.github.zkllll23.utils.common.AppJwtUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
-import org.bouncycastle.crypto.Digest;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.DigestUtils;
 
-import java.sql.Wrapper;
 import java.util.HashMap;
 import java.util.Map;
 

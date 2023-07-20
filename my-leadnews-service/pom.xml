@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>my-leadnews-user</module>
+        <module>my-leadnews-article</module>
     </modules>
     <modelVersion>4.0.0</modelVersion>
 

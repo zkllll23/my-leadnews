@@ -1,4 +1,4 @@
-package io.github.zkllll23.user.dtos;
+package io.github.zkllll23.model.user.dtos;
 
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
