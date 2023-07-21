@@ -36,7 +36,6 @@ public class MinIOTest {
      *
      * @param args
      */
-    /*
 
     public static void main(String[] args) {
         FileInputStream fileInputStream;
@@ -46,10 +45,10 @@ public class MinIOTest {
             MinioClient minioClient = MinioClient.builder().credentials("minio", "minio123").endpoint("http://192.168.200.130:9000").build();
 
             // 上传文件
-            fileInputStream = new FileInputStream("D:\\list.html");
+            fileInputStream = new FileInputStream("D:\\plugins\\js\\axios.min.js");
             PutObjectArgs putObjectArgs = new PutObjectArgs().builder()
-                    .object("list.html")    // 文件名称
-                    .contentType("text/html")   // 文件类型
+                    .object("plugins/js/axios.min.js")    // 文件名称
+                    .contentType("text/css")   // 文件类型
                     .bucket("leadnews") // 桶名称
                     .stream(fileInputStream, fileInputStream.available(), -1)    // 文件流
                     .build();
@@ -61,5 +60,4 @@ public class MinIOTest {
 
     }
 
-     */
 }
