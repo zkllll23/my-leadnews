@@ -16,6 +16,7 @@
         <module>my-leadnews-service</module>
         <module>my-leadnews-gateway</module>
         <module>my-leadnews-test</module>
+        <module>my-leadnews-basic</module>
     </modules>
 
     <!-- 继承Spring boot工程 -->

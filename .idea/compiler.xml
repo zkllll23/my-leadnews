@@ -8,9 +8,11 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="freemarker-demo" />
+        <module name="minio-demo" />
         <module name="my-leadnews-utils" />
         <module name="my-leadnews-feign-api" />
         <module name="my-leadnews-article" />
+        <module name="my-file-starter" />
         <module name="my-leadnews-app-gateway" />
         <module name="my-leadnews-model" />
         <module name="my-leadnews-common" />
@@ -35,9 +37,12 @@
       <module name="heima-leadnews-gateway" options="-parameters" />
       <module name="heima-leadnews-model" options="-parameters" />
       <module name="heima-leadnews-test" options="-parameters" />
+      <module name="minio-demo" options="-parameters" />
+      <module name="my-file-starter" options="-parameters" />
       <module name="my-leadnews" options="-parameters" />
       <module name="my-leadnews-app-gateway" options="-parameters" />
       <module name="my-leadnews-article" options="-parameters" />
+      <module name="my-leadnews-basic" options="-parameters" />
       <module name="my-leadnews-common" options="-parameters" />
       <module name="my-leadnews-feign-api" options="-parameters" />
       <module name="my-leadnews-gateway" options="-parameters" />
