@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import io.github.zkllll23.common.constants.WeMediaConstants;
 import io.github.zkllll23.file.service.FileStorageService;
 import io.github.zkllll23.model.common.dtos.PageResponseResult;
 import io.github.zkllll23.model.common.dtos.ResponseResult;
@@ -89,7 +90,7 @@ public class WmMaterialServiceImpl extends ServiceImpl<WmMaterialMapper, WmMater
         lambdaQueryWrapper.orderByDesc(WmMaterial::getCreatedTime);
         page(page, lambdaQueryWrapper);
 
-        ResponseResult responseResult = new PageResponseResult(wmMaterialDto.getPage(), wmMaterialDto.getSize(), (int)page.getTotal());
+        ResponseResult responseResult = new PageResponseResult(wmMaterialDto.getPage(), wmMaterialDto.getSize(), (int) page.getTotal());
         responseResult.setData(page.getRecords());
         // 结果返回
         return responseResult;
@@ -103,6 +104,34 @@ public class WmMaterialServiceImpl extends ServiceImpl<WmMaterialMapper, WmMater
     @Override
     public ResponseResult deletePicture(Integer id) {
         removeById(id);
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+    }
+
+    /**
+     * 收藏图片
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseResult collectPicture(Integer id) {
+        WmMaterial wmMaterial = getById(id);
+        wmMaterial.setIsCollection(WeMediaConstants.COLLECT_MATERIAL);
+        updateById(wmMaterial);
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+    }
+
+    /**
+     * 取消收藏图片
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseResult cancleCollectPicture(Integer id) {
+        WmMaterial wmMaterial = getById(id);
+        wmMaterial.setIsCollection(WeMediaConstants.CANCEL_COLLECT_MATERIAL);
+        updateById(wmMaterial);
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 }

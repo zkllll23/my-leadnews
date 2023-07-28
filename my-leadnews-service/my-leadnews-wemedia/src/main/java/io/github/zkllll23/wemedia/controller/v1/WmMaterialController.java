@@ -39,12 +39,35 @@ public class WmMaterialController {
     }
 
     /**
-     * 删除图片素材
+     * 删除图片
+     *
      * @param id
      * @return
      */
     @GetMapping("/del_picture/{id}")
     public ResponseResult deletePicture(@PathVariable Integer id) {
         return wmMaterialService.deletePicture(id);
+    }
+
+    /**
+     * 收藏图片
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/collect/{id}")
+    public ResponseResult collectPicture(@PathVariable Integer id) {
+        return wmMaterialService.collectPicture(id);
+    }
+
+    /**
+     * 取消收藏图片
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/cancel_collect/{id}")
+    public ResponseResult cancelCollectPicture(@PathVariable Integer id) {
+        return wmMaterialService.cancleCollectPicture(id);
     }
 }

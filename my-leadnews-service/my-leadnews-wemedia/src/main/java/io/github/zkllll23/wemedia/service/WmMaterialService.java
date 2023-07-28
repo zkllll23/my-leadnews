@@ -14,7 +14,7 @@ public interface WmMaterialService extends IService<WmMaterial> {
      * @param multipartFile
      * @return
      */
-    public ResponseResult uploadPicture (MultipartFile multipartFile);
+    public ResponseResult uploadPicture(MultipartFile multipartFile);
 
     /**
      * 素材管理列表查询
@@ -26,7 +26,24 @@ public interface WmMaterialService extends IService<WmMaterial> {
 
     /**
      * 删除图片
+     *
      * @return
      */
     public ResponseResult deletePicture(Integer id);
+
+    /**
+     * 收藏图片
+     *
+     * @param id
+     * @return
+     */
+    public ResponseResult collectPicture(Integer id);
+
+    /**
+     * 取消收藏图片
+     *
+     * @param id
+     * @return
+     */
+    ResponseResult cancleCollectPicture(Integer id);
 }
