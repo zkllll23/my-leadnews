@@ -2,6 +2,7 @@ package io.github.zkllll23.wemedia.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import io.github.zkllll23.model.common.dtos.ResponseResult;
+import io.github.zkllll23.model.wemedia.dtos.WmNewsDownOrUpDto;
 import io.github.zkllll23.model.wemedia.dtos.WmNewsDto;
 import io.github.zkllll23.model.wemedia.dtos.WmNewsPageReqDto;
 import io.github.zkllll23.model.wemedia.pojos.WmNews;
@@ -39,4 +40,12 @@ public interface WmNewsService extends IService<WmNews> {
      * @return
      */
     ResponseResult deleteNews(Integer id);
+
+    /**
+     * 上下架文章
+     *
+     * @param wmNewsDownOrUpDto
+     * @return
+     */
+    ResponseResult downOrUpNews(WmNewsDownOrUpDto wmNewsDownOrUpDto);
 }

@@ -12,6 +12,7 @@ import io.github.zkllll23.common.exception.CustomException;
 import io.github.zkllll23.model.common.dtos.PageResponseResult;
 import io.github.zkllll23.model.common.dtos.ResponseResult;
 import io.github.zkllll23.model.common.enums.AppHttpCodeEnum;
+import io.github.zkllll23.model.wemedia.dtos.WmNewsDownOrUpDto;
 import io.github.zkllll23.model.wemedia.dtos.WmNewsDto;
 import io.github.zkllll23.model.wemedia.dtos.WmNewsPageReqDto;
 import io.github.zkllll23.model.wemedia.pojos.WmMaterial;
@@ -24,6 +25,7 @@ import io.github.zkllll23.wemedia.mapper.WmNewsMaterialMapper;
 import io.github.zkllll23.wemedia.service.WmNewsService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.beanutils.BeanUtils;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -147,7 +149,7 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
         // 保存或修改文章
         WmNews wmNews = new WmNews();
         try {
-            BeanUtils.copyProperties(wmNews,wmNewsDto);
+            BeanUtils.copyProperties(wmNews, wmNewsDto);
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -219,7 +221,7 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
             } else {
                 wmNews.setType(WeMediaConstants.WM_NEWS_NONE_IMAGE);
             }
-            if (images != null && images.size() > 0){
+            if (images != null && images.size() > 0) {
                 StringBuilder sb = new StringBuilder();
                 for (String str : images) {
                     if (StringUtils.isNotBlank(str)) {
@@ -288,5 +290,35 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
             wmNewsMaterialMapper.delete(Wrappers.<WmNewsMaterial>lambdaQuery().eq(WmNewsMaterial::getNewsId, wmNews.getId()));
             updateById(wmNews);
         }
+    }
+
+    /**
+     * 上下架文章
+     *
+     * @param wmNewsDownOrUpDto
+     * @return
+     */
+    @Override
+    public ResponseResult downOrUpNews(WmNewsDownOrUpDto wmNewsDownOrUpDto) {
+        if (wmNewsDownOrUpDto == null) {
+            throw new CustomException(AppHttpCodeEnum.PARAM_INVALID);
+        }
+        WmNews wmNews = getById(wmNewsDownOrUpDto.getId());
+        if (wmNews == null) {
+            throw new CustomException(AppHttpCodeEnum.DATA_NOT_EXIST);
+        }
+        if (!wmNews.getStatus().equals(WeMediaConstants.WM_NEWS_IS_PUBLISHED)) {
+            throw new CustomException(AppHttpCodeEnum.NEWS_IS_NOT_PUBLISHED);
+        }
+        if (wmNewsDownOrUpDto.getEnable().equals(WeMediaConstants.WM_NEWS_ENABLE)) {
+            wmNews.setStatus(WeMediaConstants.WM_NEWS_IS_PUBLISHED);
+        } else {
+            wmNews.setStatus(WeMediaConstants.WM_NEWS_IS_NOT_PUBLISHED);
+        }
+        boolean res = updateById(wmNews);
+        if (!res) {
+            throw new CustomException(AppHttpCodeEnum.NEWS_UPDATE_FAIL);
+        }
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 }

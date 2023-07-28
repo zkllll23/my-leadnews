@@ -18,7 +18,19 @@ public class WeMediaConstants {
 
     public static final Short WM_NEWS_ENABLE_TRUE = 1;
 
-    public static final Short WM_NEWS_STATUS_DRAFT = 0;
-
+    /**
+     * 文章已发布
+     */
     public static final Short WM_NEWS_IS_PUBLISHED = 9;
+
+    /**
+     * 文章上架
+     */
+    public static final Short WM_NEWS_ENABLE = 1;
+
+    /**
+     * 文章待发布
+     */
+    public static final Short WM_NEWS_IS_NOT_PUBLISHED = 8;
+
 }

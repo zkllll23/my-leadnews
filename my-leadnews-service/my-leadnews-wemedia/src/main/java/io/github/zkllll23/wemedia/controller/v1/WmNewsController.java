@@ -1,6 +1,7 @@
 package io.github.zkllll23.wemedia.controller.v1;
 
 import io.github.zkllll23.model.common.dtos.ResponseResult;
+import io.github.zkllll23.model.wemedia.dtos.WmNewsDownOrUpDto;
 import io.github.zkllll23.model.wemedia.dtos.WmNewsDto;
 import io.github.zkllll23.model.wemedia.dtos.WmNewsPageReqDto;
 import io.github.zkllll23.wemedia.service.WmNewsService;
@@ -33,7 +34,7 @@ public class WmNewsController {
      * @return
      */
     @PostMapping("/submit")
-    public ResponseResult submitNews (@RequestBody WmNewsDto wmNewsDto) {
+    public ResponseResult submitNews(@RequestBody WmNewsDto wmNewsDto) {
         return wmNewsService.submitNews(wmNewsDto);
     }
 
@@ -56,5 +57,13 @@ public class WmNewsController {
     @GetMapping("/del_news/{id}")
     public ResponseResult deleteNews(@PathVariable Integer id) {
         return wmNewsService.deleteNews(id);
+    }
+
+    /**
+     * 上下架文章
+     */
+    @PostMapping("/down_or_up")
+    public ResponseResult downOrUpNews(@RequestBody WmNewsDownOrUpDto wmNewsDownOrUpDto) {
+        return wmNewsService.downOrUpNews(wmNewsDownOrUpDto);
     }
 }
