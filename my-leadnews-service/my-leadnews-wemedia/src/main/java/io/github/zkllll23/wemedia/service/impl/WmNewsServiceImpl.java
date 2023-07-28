@@ -90,6 +90,31 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
     }
 
     /**
+     * 删除文章
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseResult deleteNews(Integer id) {
+        if (id == null) {
+            throw new CustomException(AppHttpCodeEnum.PARAM_INVALID);
+        }
+        WmNews wmNews = getById(id);
+        if (wmNews == null) {
+            throw new CustomException(AppHttpCodeEnum.DATA_NOT_EXIST);
+        }
+        if (wmNews.getStatus().equals(WeMediaConstants.WM_NEWS_IS_PUBLISHED)) {
+            throw new CustomException(AppHttpCodeEnum.NEWS_IS_PUBLISHED);
+        }
+        boolean res = removeById(id);
+        if (!res) {
+            throw new CustomException(AppHttpCodeEnum.NEWS_DELETE_FAIL);
+        }
+        return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
+    }
+
+    /**
      * 查看详情
      *
      * @param id

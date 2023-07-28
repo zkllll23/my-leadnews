@@ -29,7 +29,8 @@ public enum AppHttpCodeEnum {
     // 自媒体错误 3501~4000
     MATERIAL_REFERENCE_INVALID(3501,"素材失效"),
     MATERIAL_DELETE_FAIL(3502, "素材删除失败"),
-
+    NEWS_DELETE_FAIL(3503, "文章删除失败"),
+    NEWS_IS_PUBLISHED(3504, "文章已发布,不能删除"),
     JUST_LAST_ENUM(10000, "最后一个枚举");
 
     private final int code;

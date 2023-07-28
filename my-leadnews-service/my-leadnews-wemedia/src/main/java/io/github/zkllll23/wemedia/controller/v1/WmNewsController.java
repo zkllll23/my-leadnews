@@ -4,6 +4,7 @@ import io.github.zkllll23.model.common.dtos.ResponseResult;
 import io.github.zkllll23.model.wemedia.dtos.WmNewsDto;
 import io.github.zkllll23.model.wemedia.dtos.WmNewsPageReqDto;
 import io.github.zkllll23.wemedia.service.WmNewsService;
+import io.swagger.models.auth.In;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,5 +45,16 @@ public class WmNewsController {
     @GetMapping("/one/{id}")
     public ResponseResult getContent(@PathVariable Integer id) {
         return wmNewsService.getContent(id);
+    }
+
+    /**
+     * 删除文章
+     *
+     * @param id
+     * @return
+     */
+    @GetMapping("/del_news/{id}")
+    public ResponseResult deleteNews(@PathVariable Integer id) {
+        return wmNewsService.deleteNews(id);
     }
 }

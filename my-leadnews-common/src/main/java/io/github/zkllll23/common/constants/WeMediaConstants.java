@@ -19,4 +19,6 @@ public class WeMediaConstants {
     public static final Short WM_NEWS_ENABLE_TRUE = 1;
 
     public static final Short WM_NEWS_STATUS_DRAFT = 0;
+
+    public static final Short WM_NEWS_IS_PUBLISHED = 9;
 }
