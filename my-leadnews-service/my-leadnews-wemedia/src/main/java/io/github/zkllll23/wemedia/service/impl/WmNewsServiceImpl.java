@@ -25,6 +25,7 @@ import io.github.zkllll23.wemedia.service.WmNewsService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -47,6 +48,12 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
     @Autowired
     private WmMaterialMapper wmMaterialMapper;
 
+    /**
+     * 查询文章列表
+     *
+     * @param wmNewsPageReqDto
+     * @return
+     */
     @Override
     public ResponseResult findList(WmNewsPageReqDto wmNewsPageReqDto) {
         // 检查参数
@@ -80,6 +87,24 @@ public class WmNewsServiceImpl extends ServiceImpl<WmNewsMapper, WmNews> impleme
         // 结果返回
         responseResult.setData(page.getRecords());
         return responseResult;
+    }
+
+    /**
+     * 查看详情
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public ResponseResult getContent(Integer id) {
+        if (id == null) {
+            throw new CustomException(AppHttpCodeEnum.PARAM_INVALID);
+        }
+        WmNews wmNews = getById(id);
+        if (wmNews == null) {
+            throw new CustomException(AppHttpCodeEnum.DATA_NOT_EXIST);
+        }
+        return ResponseResult.okResult(wmNews);
     }
 
     /**

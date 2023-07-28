@@ -35,4 +35,14 @@ public class WmNewsController {
     public ResponseResult submitNews (@RequestBody WmNewsDto wmNewsDto) {
         return wmNewsService.submitNews(wmNewsDto);
     }
+
+    /**
+     * 查看详情
+     *
+     * @return
+     */
+    @GetMapping("/one/{id}")
+    public ResponseResult getContent(@PathVariable Integer id) {
+        return wmNewsService.getContent(id);
+    }
 }
