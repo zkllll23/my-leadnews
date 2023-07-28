@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import io.github.zkllll23.common.constants.WeMediaConstants;
+import io.github.zkllll23.common.exception.CustomException;
 import io.github.zkllll23.file.service.FileStorageService;
 import io.github.zkllll23.model.common.dtos.PageResponseResult;
 import io.github.zkllll23.model.common.dtos.ResponseResult;
@@ -15,6 +16,7 @@ import io.github.zkllll23.utils.thread.WmThreadLocalUtil;
 import io.github.zkllll23.wemedia.mapper.WmMaterialMapper;
 import io.github.zkllll23.wemedia.service.WmMaterialService;
 import lombok.extern.slf4j.Slf4j;
+import org.checkerframework.checker.units.qual.A;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -103,7 +105,13 @@ public class WmMaterialServiceImpl extends ServiceImpl<WmMaterialMapper, WmMater
      */
     @Override
     public ResponseResult deletePicture(Integer id) {
-        removeById(id);
+        if (id == null) {
+            throw new CustomException(AppHttpCodeEnum.PARAM_INVALID);
+        }
+        boolean res = removeById(id);
+        if (!res) {
+            throw new CustomException(AppHttpCodeEnum.MATERIAL_DELETE_FAIL);
+        }
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
     }
 
@@ -115,7 +123,13 @@ public class WmMaterialServiceImpl extends ServiceImpl<WmMaterialMapper, WmMater
      */
     @Override
     public ResponseResult collectPicture(Integer id) {
+        if (id == null) {
+            throw new CustomException(AppHttpCodeEnum.PARAM_INVALID);
+        }
         WmMaterial wmMaterial = getById(id);
+        if (wmMaterial == null) {
+            throw new CustomException(AppHttpCodeEnum.PARAM_INVALID);
+        }
         wmMaterial.setIsCollection(WeMediaConstants.COLLECT_MATERIAL);
         updateById(wmMaterial);
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);
@@ -130,6 +144,9 @@ public class WmMaterialServiceImpl extends ServiceImpl<WmMaterialMapper, WmMater
     @Override
     public ResponseResult cancleCollectPicture(Integer id) {
         WmMaterial wmMaterial = getById(id);
+        if (wmMaterial == null) {
+            throw new CustomException(AppHttpCodeEnum.PARAM_INVALID);
+        }
         wmMaterial.setIsCollection(WeMediaConstants.CANCEL_COLLECT_MATERIAL);
         updateById(wmMaterial);
         return ResponseResult.okResult(AppHttpCodeEnum.SUCCESS);

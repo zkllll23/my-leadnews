@@ -25,12 +25,15 @@ public enum AppHttpCodeEnum {
     DATA_NOT_EXIST(1002,"数据不存在"),
     // 数据错误 3000~3500
     NO_OPERATOR_AUTH(3000,"无权限操作"),
-    NEED_ADMIND(3001,"需要管理员权限"),
+    NEED_ADMIN(3001,"需要管理员权限"),
     // 自媒体错误 3501~4000
-    MATERIAL_REFERENCE_INVALID(3501,"素材失效");
+    MATERIAL_REFERENCE_INVALID(3501,"素材失效"),
+    MATERIAL_DELETE_FAIL(3502, "素材删除失败"),
 
-    int code;
-    String errorMessage;
+    JUST_LAST_ENUM(10000, "最后一个枚举");
+
+    private final int code;
+    private final String errorMessage;
 
     AppHttpCodeEnum(int code, String errorMessage){
         this.code = code;
