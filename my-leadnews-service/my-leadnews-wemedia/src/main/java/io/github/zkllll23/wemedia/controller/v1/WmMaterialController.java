@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.websocket.server.PathParam;
+
 @RestController
 @RequestMapping("/api/v1/material")
 public class WmMaterialController {
@@ -34,5 +36,15 @@ public class WmMaterialController {
     @PostMapping("/list")
     public ResponseResult list(@RequestBody WmMaterialDto wmMaterialDto) {
         return wmMaterialService.list(wmMaterialDto);
+    }
+
+    /**
+     * 删除图片素材
+     * @param id
+     * @return
+     */
+    @GetMapping("/del_picture/{id}")
+    public ResponseResult deletePicture(@PathVariable Integer id) {
+        return wmMaterialService.deletePicture(id);
     }
 }
